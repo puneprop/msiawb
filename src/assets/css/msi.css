@@ -1,0 +1,167 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+/*header.carousel {
+    height: 84%;
+}*/
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+   /* background-position: center;*/
+   /* background-size: cover;*/
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Footer Styles */
+
+.footer{background:#4f4f4f; color: #999;
+}
+.footer ul.contact_address {
+    float: left;
+    margin: 10px 0 0;
+    padding: 0;
+    width: 100%;
+}
+
+.footer .contact_address li {
+    line-height: 25px;
+    margin: 0;
+    padding: 0;
+	
+}
+ul li {
+    list-style: outside none none;
+	line-height:29px;
+}
+
+.footer ul.list {
+    margin: 0;
+    padding: 0;
+}
+.footer .list li {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer a {
+    color: #999;
+}
+.footer input[type="email"], .footer input[type="text"] {
+    background-color: #a5a5a5;
+    border: 1px solid #3b3b3b;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 100%;
+}
+.footersec1, .footersec2, .footersec3 {
+    clear: none;
+    display: block;
+    float: left;
+    margin-right: 40px;
+    width: 20%;
+}
+.footer input[type="email"] {
+    border-radius: 3px;
+}
+.footer input[type="text"] {
+    border-radius: 2px;
+}
+.footersec2 input[type="submit"], .footersec2 input[type="submit"]:hover, #msg5 {
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+.footer input[type="submit"] {
+    background-color: #65d1db;
+    border: 1px solid #65d1db;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 5px;
+    padding: 14px;
+    width: 100%;
+}
+.footersec2 input[type="submit"]:hover {
+    background-color: #0a88da;
+    margin-bottom: 5px;
+    padding: 14px;
+}
+.footersec4 {
+    clear: none;
+    display: block;
+    float: right;
+    width: 20%;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
