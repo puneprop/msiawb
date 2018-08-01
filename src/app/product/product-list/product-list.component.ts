@@ -13,10 +13,23 @@ import { LoaderSpinnerService } from "../../shared/loader-spinner/loader-spinner
 export class ProductListComponent implements OnInit {
   productList: Product[];
 
+  ptypes = ["All", "Surgicals", "Pharmaceuticals"];
   // tslint:disable-next-line:max-line-length
   brands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables"];
 
+  // tslint:disable-next-line:max-line-length
+  pharmabrands = ["All", "Oral Care", "Ayurvedic"];
+
+  // tslint:disable-next-line:max-line-length
+  allbrands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables", "Oral Care", "Ayurvedic"];
+
+  selectedPtype: "All";
+
   selectedBrand: "All";
+
+  selectedPharmaBrand: "All";
+
+  productFilter: any;
 
   page = 1;
   constructor(
@@ -25,7 +38,9 @@ export class ProductListComponent implements OnInit {
     private spinnerService: LoaderSpinnerService,
     private toastyConfig: ToastyConfig,
     private toastyService: ToastyService
-  ) {}
+  ) {
+    this.productFilter = {selectedBrand: "All", selectedPtype: "All"};
+  }
 
   ngOnInit() {
     this.getAllProducts();

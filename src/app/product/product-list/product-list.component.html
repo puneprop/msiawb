@@ -12,10 +12,33 @@
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">
-        <label for="brand_select">By Category:</label>
+          <div class="row">
+          <label for="type_select">Product Type:</label>
+          <select class="form-control" name="" id="type_select" [(ngModel)]="selectedPtype">
+            <option *ngFor="let ptype of ptypes" [ngValue]="ptype">{{ptype}}</option>
+          </select>  
+          </div>
+          <div class="row" *ngIf="selectedPtype == ptypes[1] ">
+        <label for="brand_select">Product Category:</label>
         <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand">
           <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
         </select>
+        </div>
+
+        <div class="row" *ngIf="selectedPtype == ptypes[2] ">
+        <label for="pharmabrand_select">Product Category:</label>
+        <select class="form-control" name="" id="pharmabrand_select" [(ngModel)]="selectedBrand">
+          <option *ngFor="let pharmabrand of pharmabrands" [ngValue]="pharmabrand">{{pharmabrand}}</option>
+        </select>
+        </div>
+
+        <div class="row" *ngIf="selectedPtype == ptypes[0] ">
+            <label for="pharmabrand_select">Product Category:</label>
+            <select class="form-control" name="" id="pharmabrand_select" [(ngModel)]="selectedBrand">
+              <option *ngFor="let allbrand of allbrands" [ngValue]="allbrand">{{allbrand}}</option>
+            </select>
+            </div>
+    
       </div>
     </div>
     <div class="col-md-9">
@@ -23,7 +46,7 @@
       <div class="container">
         <div class="row">
           <!-- List of Products -->
-          <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand | paginate: { itemsPerPage: 6, currentPage: page }">
+          <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand :selectedPtype | paginate: { itemsPerPage: 6, currentPage: page }">
             <div class="item">
               <div class=" mb-r">
                 <!--Card-->
