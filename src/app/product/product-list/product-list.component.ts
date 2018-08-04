@@ -13,7 +13,7 @@ import { LoaderSpinnerService } from "../../shared/loader-spinner/loader-spinner
 export class ProductListComponent implements OnInit {
   productList: Product[];
 
-  ptypes = ["All", "Surgicals", "Pharmaceuticals", "Surgicals-PSE"];
+  ptypes = ["All", "Surgicals", "Pharmaceuticals", "PHC Range"];
   // tslint:disable-next-line:max-line-length
   brands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables"];
 
