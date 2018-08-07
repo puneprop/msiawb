@@ -4,7 +4,7 @@ import {
   ToastOptions,
   ToastData
 } from "ng2-toasty";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Product } from "../../shared/models/product";
 import { ProductService } from "../../shared/services/product.service";
@@ -20,6 +20,16 @@ const moment = require("moment");
   styleUrls: ["./add-product.component.scss"]
 })
 export class AddProductComponent implements OnInit {
+
+  @Input() productType: string;
+  @Input() productCategory: string;
+  @Input() productObject: Product;
+  @Input() ptypes: any;
+  @Input() brands: any;
+  @Input() pharmabrands: any;
+  @Input() psesurgicalbrands: any;
+  @Input() allbrands: any;
+
   product: Product = new Product();
   constructor(
     private productService: ProductService,
@@ -29,9 +39,51 @@ export class AddProductComponent implements OnInit {
     this.toastyConfig.theme = "material";
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.product = this.productObject;
+  }
 
-  createProduct(productForm: NgForm) {
+  createProductNew(product: Product) {
+    console.log("in create  line "+product.$key);
+    if (product.$key === undefined){
+      this.createProduct(product);
+    }else{
+      this.modifyProduct(product);
+    }
+  }
+
+  createProduct(product: Product) {
+    const toastOptions: ToastOptions = {
+      title: "Product Creation",
+      msg:
+        "product " + product.productName + "is added successfully",
+      showClose: true,
+      timeout: 5000,
+      theme: "default"
+    };
+    product.productId = "PROD_" + shortId.generate();
+    product.productAdded = moment().unix();
+    product.ratings = Math.floor(Math.random() * 5 + 1);
+    if (product.productImageUrl === undefined) {
+      product.productImageUrl =
+        "http://via.placeholder.com/640x360/007bff/ffffff";
+    }
+
+    product.favourite = false;
+
+    const date = product.productAdded;
+
+    this.productService.createProduct(product);
+
+    this.product = new Product();
+
+    $("#exampleModalLong").modal("hide");
+
+    this.toastyService.success(toastOptions);
+    
+  }
+
+  createProductOriginal(productForm: NgForm) {
     const toastOptions: ToastOptions = {
       title: "Product Creation",
       msg:
@@ -52,9 +104,36 @@ export class AddProductComponent implements OnInit {
 
     const date = productForm.value["productAdded"];
 
-    this.productService.createProduct(productForm.value);
+   // this.productService.createProduct(productForm.value);
 
     this.product = new Product();
+
+    $("#exampleModalLong").modal("hide");
+
+    this.toastyService.success(toastOptions);
+  }
+
+  modifyProduct(product: Product) {
+    const toastOptions: ToastOptions = {
+      title: "Product Modification",
+      msg:
+        "product " + product.productName + "is modified successfully",
+      showClose: true,
+      timeout: 5000,
+      theme: "default"
+    };
+    product.productAdded = moment().unix();
+    product.ratings = Math.floor(Math.random() * 5 + 1);
+    if (product.productImageUrl === undefined) {
+      product.productImageUrl =
+        "http://via.placeholder.com/640x360/007bff/ffffff";
+    }
+
+    product.favourite = false;
+
+    const date = product.productAdded;
+
+    this.productService.updateItem(product);
 
     $("#exampleModalLong").modal("hide");
 

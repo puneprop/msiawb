@@ -57,6 +57,35 @@ export class ProductService {
     return this.product;
   }
 
+  deleteItem(key: string){
+    this.db.object("products/" + key).remove().then(() => {
+      this.products.remove(key);
+      console.log('Document successfully removed!');
+    }).catch(err => {
+      console.error('Error removing document: ', err);
+    });
+  }
+
+
+
+  updateItem(data: Product){
+    console.log("updated" + data.productName);
+    console.log("updated" + data.$key);
+    const editedMessage = {
+      productName: data.productName,
+      productCategory: data.productCategory,
+      productPtype: data.productPtype,
+      productDescription: data.productDescription,
+      productImageUrl: data.productImageUrl,
+      productSeller: data.productSeller
+    };
+    this.db.object(`/products/${data.$key}`).update(editedMessage).then(() => {
+      console.log('Document successfully updated!');
+    }).catch(err => {
+      console.error('Error updating document: ', err);
+    });
+  }
+
   updateProduct(data: Product) {
     this.products.update(data.$key, data);
   }

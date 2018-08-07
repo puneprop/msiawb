@@ -3,7 +3,7 @@
   <div class="row" *ngIf="authService.isAdmin()">
     <div class="col-sm">
       <div class="float-right">
-        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
+        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" (click)="setProductObject(null)" data-target="#exampleModalLong">
           Add Product
         </button>
       </div>
@@ -45,7 +45,7 @@
             <select class="form-control" name="" id="pharmabrand_select" [(ngModel)]="selectedBrand">
               <option *ngFor="let allbrand of allbrands" [ngValue]="allbrand">{{allbrand}}</option>
             </select>
-            </div>
+        </div>
     
       </div>
     </div>
@@ -84,23 +84,23 @@
                     <p class="card-text">{{ product.productDescription }}
                     </p>
                     <!--Card footer-->
-                    <!-- <div class="card-footer">
-                      <span class="left">&#8377; {{ product.productPrice }} </span>
+                    <div class="card-footer">
+                      <!-- <span class="left">&#8377; {{ product.productPrice }} </span> -->
                       <span class="right">
-                        <a placement="top" mdbTooltip="Quick Look" container="body" [routerLink]="['/products/product', product.$key]">
+                        <!-- <a placement="top" mdbTooltip="Quick Look" container="body" [routerLink]="['/products/product', product.$key]">
                           <i class="fa fa-eye"></i>
                         </a>
                         <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(product)">
                           <i class="fa fa-heart"></i>
-                        </a>
-                        <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addToCart(product)">
+                        </a> -->
+                        <a placement="top" mdbTooltip="Modify Product" container="body" *ngIf="authService.isAdmin()" (click)="setProductObject(product)" data-toggle="modal" data-target="#exampleModalLong">
                           <i class="fa fa-shopping-cart"></i>
-                        </a>
+                        </a> 
                         <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()" (click)="removeProduct(product.$key)">
                           <i class="fa fa-trash"></i>
                         </a>
                       </span>
-                    </div> -->
+                    </div>
 
                   </div>
                   <!--/.Card content-->
@@ -121,5 +121,5 @@
     </div>
   </div>
 </div>
-<app-add-product></app-add-product>
+<app-add-product [productType]=selectedPtype [productCategory]=selectedBrand [productObject]=productObject [ptypes]=ptypes [brands]=brands [pharmabrands]=pharmabrands [psesurgicalbrands]=psesurgicalbrands [allbrands]=allbrands></app-add-product>
 <ng2-toasty></ng2-toasty>

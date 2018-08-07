@@ -1,5 +1,7 @@
 <br>
 <div class="container">
+  <form #modifyProductForm="ngForm" (ngSubmit)="modifyItem(modifyProductForm)">
+
   <div class="row">
     <div class="col-sm-4">
       <div class="product-image">
@@ -34,7 +36,14 @@
           <tbody>
             <tr>
               <th scope="row">Product Name</th>
-              <td>{{product.productName}}</td>
+
+              <div *ngIf="authService.isAdmin(); else notAdmin">
+                      <input type="text" class="form-control" id="form9" name="productName" [(ngModel)]="product.productName" placeholder="Product Name">
+              </div>
+              <ng-template #notAdmin>
+                  <td>{{product.productName}}</td>
+              </ng-template>
+
             </tr>
             <tr>
               <th scope="row">Product Category</th>
@@ -43,6 +52,9 @@
             <tr>
               <th scope="row">Product Description</th>
               <td>{{product.productDescription}}</td>
+            </tr>
+            <tr *ngIf="authService.isAdmin()">
+                <button type="submit" class="btn btn-primary">Modify Product</button>
             </tr>
             <!-- <tr>
               <th scope="row">No. of quantity available</th>
@@ -57,4 +69,6 @@
       </div>
     </div>
   </div>
+  </form>
 </div>
+<ng2-toasty></ng2-toasty>
