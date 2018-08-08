@@ -82,7 +82,8 @@ export class ProductListComponent implements OnInit {
   }
 
   removeProduct(key: string) {
-    this.productService.deleteItem(key);
+    console.log(key);
+    //this.productService.deleteItem(key);
   }
 
   addFavourite(product: Product) {

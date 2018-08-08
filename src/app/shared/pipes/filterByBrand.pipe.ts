@@ -1,30 +1,44 @@
 import { Pipe, PipeTransform } from "@angular/core";
+import { containsElement } from "../../../../node_modules/@angular/animations/browser/src/render/shared";
 
 @Pipe({
   name: "filterByBrand"
 })
 export class FilterByBrandPipe implements PipeTransform {
-  transform(items: any, select?: any , ptype?: any): any {
+  transform(items: any, select?: any , ptype?: any , searchProductName?: any): any {
     console.log("ptype=" + ptype);
     console.log("select=" + select);
+    console.log("searchProductName=" + searchProductName);
 
     let selectedPtypeAllItems = items;
+    if (ptype === undefined && select === undefined && (searchProductName == "" || searchProductName ===undefined) ) {
+      return null;
+    }
+
+    if (searchProductName != "") {
+
+        selectedPtypeAllItems =  searchProductName
+        ? selectedPtypeAllItems.filter(item => item["productName"].toLowerCase().includes(searchProductName.toLowerCase()))
+        : selectedPtypeAllItems;        
+
+    } 
+
     if ( ptype !== undefined ) {
       if (ptype !== "All") {
-         selectedPtypeAllItems = items.filter(item => item["productPtype"] === ptype);
+         selectedPtypeAllItems = selectedPtypeAllItems.filter(item => item["productPtype"] === ptype);
       } else {
-        selectedPtypeAllItems = items;
+        selectedPtypeAllItems = selectedPtypeAllItems;
       }
-      console.log("selectedPtypeAllItems=" + selectedPtypeAllItems);
 
     if (select !== "All") {
-      return select
+      selectedPtypeAllItems =  select
         ? selectedPtypeAllItems.filter(item => item["productCategory"] === select)
-        : null;
-    } else {
-      return selectedPtypeAllItems;
-    }
+        : selectedPtypeAllItems;
+    } 
+
   }
+
+  return selectedPtypeAllItems;
   }
 }
 

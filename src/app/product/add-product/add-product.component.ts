@@ -45,11 +45,11 @@ export class AddProductComponent implements OnInit {
 
   createProductNew(product: Product) {
     console.log("in create  line "+product.$key);
-    if (product.$key === undefined){
-      this.createProduct(product);
-    }else{
-      this.modifyProduct(product);
-    }
+    // if (product.$key === undefined){
+    //   this.createProduct(product);
+    // }else{
+    //   this.modifyProduct(product);
+    // }
   }
 
   createProduct(product: Product) {
