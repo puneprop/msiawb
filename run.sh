@@ -4,5 +4,5 @@ set -x
 # Production build
 ng build --prod
 # Serve
-cd dist/angularShop
+cd dist/matoshreeApp
 http-server
