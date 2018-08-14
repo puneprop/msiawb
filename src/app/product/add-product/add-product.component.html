@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="overflow-y: initial">
     <div class="modal-content">
       <div class="modal-header">
 
@@ -16,7 +16,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="height: 350px;overflow-y: auto;">
           <form #addProductForm="ngForm"  (ngSubmit)="createProductNew(addProductForm,productObject)">        
 
             <div class="form-group">

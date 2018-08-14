@@ -24,7 +24,7 @@ export class BestProductComponent implements OnInit {
       },
       autoplay: true,
       loop: true,
-      autoplayTimeout: 3000,
+      autoplayTimeout: 5000,
       lazyLoad: true
     };
     this.getAllProducts();
