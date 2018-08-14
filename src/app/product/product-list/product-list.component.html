@@ -117,7 +117,7 @@
                           <i class="fa fa-heart"></i>
                         </a> -->
                         <a placement="top" mdbTooltip="Modify Product" container="body" *ngIf="authService.isAdmin()" (click)="setProductObject(product)" data-toggle="modal" data-target="#exampleModalLong">
-                          <i class="fa fa-shopping-cart"></i>
+                          <i class="fa fa-edit"></i>
                         </a> 
                         <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()" data-toggle="modal" data-target="#centralModalDanger">
                         <!-- <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()" (click)="removeProduct(product.$key)"> -->
@@ -147,7 +147,7 @@
                           
                                   <!--Footer-->
                                   <div class="modal-footer justify-content-center">
-                                      <a type="button" class="btn btn-danger" (click)="removeProduct(product.$key)">YES <i class="fa fa-diamond ml-1"></i></a>
+                                      <a type="button" class="btn btn-danger" (click)="removeProduct(product.$key)" data-dismiss="modal">YES <i class="fa fa-diamond ml-1"></i></a>
                                       <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Cancel</a>
                                   </div>
                               </div>
@@ -155,15 +155,11 @@
                           </div>
                           </div>
                           <!-- Central Modal Medium Danger-->
-
-
                     </div>
                   </div>
                   <!--/.Card content-->
-
                 </div>
                 <!--/.Card-->
-
               </div>
             </div>
           </div>

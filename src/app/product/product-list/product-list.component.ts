@@ -56,6 +56,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("init list");
     this.getAllProducts();
   }
 
@@ -83,7 +84,7 @@ export class ProductListComponent implements OnInit {
 
   removeProduct(key: string) {
     console.log(key);
-    //this.productService.deleteItem(key);
+    this.productService.deleteItem(key);
   }
 
   addFavourite(product: Product) {

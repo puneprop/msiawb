@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
 
-          <div class="modal-footer" *ngIf="productObject.productImageUrl != null; else newProductLabel">
+          <div class="modal-footer" *ngIf="productObject.$key != null; else newProductLabel">
               <h5 class="modal-title" id="exampleModalLongTitle">Modify Product</h5>
             </div>
             <ng-template #newProductLabel>
@@ -17,8 +17,9 @@
         </button>
       </div>
       <div class="modal-body">
-          <form #addProductForm="ngForm" (ngSubmit)="createProductNew(productObject)"  [ngFormOptions]="{updateOn: 'change'}">        
+          <form #addProductForm="ngForm"  (ngSubmit)="createProductNew(addProductForm,productObject)">        
 
+            <div class="form-group">
 
               <div class="row">
                   <label for="type_select">Product Type:</label>
@@ -75,7 +76,7 @@
             <!--First column-->
             <div class="col-md-12">
               <div class="md-form">
-                <input type="text" class="form-control" id="form9" name="productName" [(ngModel)]="productObject.productName" placeholder="Product Name" required>
+                <input type="text" class="form-control" id="form9" name="productName" [(ngModel)]="productObject.productName" placeholder="Product Name">
               </div>
             </div>
           </div>
@@ -101,20 +102,71 @@
           <div class="row">
             <div class="col-md-12">
               <div class="md-form">
-                <input type="text" id="form512" [(ngModel)]="productObject.productImageUrl" class="form-control" name="productImageUrl" placeholder="Image Url exactly 640*360 dimensions">
+                <input type="text" id="form512" [(ngModel)]="productObject.productImageUrl" class="form-control" name="productImageUrl" placeholder="Image Url 134Px*237Px. products/P-001.jpg ">
               </div>
             </div>
           </div>
 
-          <div class="modal-footer" *ngIf="productObject.productImageUrl != null; else newProduct">
-            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#centralModalWarning">Modify Product</button>
+          <div class="modal-footer" *ngIf="productObject.$key != null; else newProduct">
+            <button type="submit" class="btn btn-primary">Modify Product</button>
+          </div>
+          <ng-template #newProduct>
+              <button type="submit" class="btn btn-primary">Add Product</button>
+          </ng-template>          
+
+          <!-- <div class="modal-footer" *ngIf="productObject.productImageUrl != null; else newProduct">
+            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#updateModal">Modify Product</button>
           </div>
           <ng-template #newProduct>
               <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#warningModal">Add Product</button>
-          </ng-template>          
+          </ng-template>           -->
+
+          <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="warningModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-notify modal-warning" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="warningModalTitle">Add Product</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p>Product will be added,are you sure?.</p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">      
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+                </div> 
+                </div>
+              </div>
+          </div>
+
+          <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="warningModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-notify modal-warning" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="warningModalTitle">Update Product</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p>Product will be updated,are you sure?.</p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">      
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+                </div> 
+                </div>
+              </div>
+          </div>          
 
 
-
+        </div>
         </form>
       </div>
     </div>
@@ -123,56 +175,3 @@
 
 
 
-<div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="warningModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-notify modal-warning" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="warningModalTitle">Add Product</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="text-center">
-                <p>Product will be added,are you sure?.</p>
-            </div>
-        </div>
-        <div class="modal-footer justify-content-center">      
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Add</button>
-        </div> 
-        </div>
-      </div>
-    </div>
-
-
-  <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-notify modal-warning" role="document">
-          <!--Content-->
-          <div class="modal-content">
-              <!--Header-->
-              <div class="modal-header">
-                  <p class="heading lead">Product Modification</p>
-      
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true" class="white-text">&times;</span>
-                  </button>
-              </div>
-      
-              <!--Body-->
-              <div class="modal-body">
-                  <div class="text-center">
-                      <p>Product contents will be updated,are you sure?.</p>
-                  </div>
-              </div>
-      
-              <!--Footer-->
-              <div class="modal-footer justify-content-center">
-                  <a type="button" class="btn btn-warning">Update<i class="fa fa-diamond ml-1"></i></a>
-                  <a type="button" class="btn btn-outline-warning waves-effect" data-dismiss="modal">Cancel</a>
-              </div>
-          </div>
-          <!--/.Content-->
-      </div>
-      </div>
-      <!-- Central Modal Medium Warning-->

@@ -44,7 +44,12 @@ export class ProductService {
   }
 
   getProducts() {
+    
+    if(this.products === undefined){
     this.products = this.db.list("products");
+    console.log("Got products list from db" + this.products);
+    }
+
     return this.products;
   }
 

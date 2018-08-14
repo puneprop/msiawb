@@ -5,6 +5,8 @@ import { ProductService } from "../../shared/services/product.service";
 import { LoaderSpinnerService } from "../../shared/loader-spinner/loader-spinner";
 import { AuthService } from "../../shared/services/auth.service";
 import { NgForm } from "@angular/forms";
+import {Location} from '@angular/common';
+
 import {
   ToastyService,
   ToastyConfig,
@@ -27,7 +29,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private spinnerService: LoaderSpinnerService,
     private toastyService: ToastyService,
-    private toastyConfig: ToastyConfig
+    private toastyConfig: ToastyConfig,
+    private _location: Location
   ) {
     this.product = new Product();
   }
@@ -80,5 +83,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
     this.toastyService.success(toastOptions);
   }
+
+  backClicked() {
+    this._location.back();
+}
 
 }

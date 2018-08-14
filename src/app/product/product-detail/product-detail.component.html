@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-  <form #modifyProductForm="ngForm" (ngSubmit)="modifyItem(modifyProductForm)">
+  <form #modifyProductForm="ngForm">
 
   <div class="row">
     <div class="col-sm-4">
@@ -36,14 +36,7 @@
           <tbody>
             <tr>
               <th scope="row">Product Name</th>
-
-              <div *ngIf="authService.isAdmin(); else notAdmin">
-                      <input type="text" class="form-control" id="form9" name="productName" [(ngModel)]="product.productName" placeholder="Product Name">
-              </div>
-              <ng-template #notAdmin>
-                  <td>{{product.productName}}</td>
-              </ng-template>
-
+              <td>{{product.productName}}</td>
             </tr>
             <tr>
               <th scope="row">Product Category</th>
@@ -53,9 +46,6 @@
               <th scope="row">Product Description</th>
               <td>{{product.productDescription}}</td>
             </tr>
-            <tr *ngIf="authService.isAdmin()">
-                <button type="submit" class="btn btn-primary">Modify Product</button>
-            </tr>
             <!-- <tr>
               <th scope="row">No. of quantity available</th>
               <td>{{product.productQuatity}}</td>
@@ -64,6 +54,8 @@
               <th scope="row">Product Added on</th>
               <td>{{product.productAdded * 1000 | date}}</td>
             </tr> -->
+            <!-- <button class="btn btn-primary" (click)="backClicked()">Back</button>             -->
+            <button class="btn btn-primary" routerLink="/products/all-products" queryParams=" { productType: 'Surgicals' }">Back</button>
           </tbody>
         </table>
       </div>
