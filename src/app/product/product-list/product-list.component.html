@@ -82,30 +82,38 @@
               <div class=" mb-r">
                 <!--Card-->
                 <div class="card card-cascade wider">
+                    <div class="view overlay hm-white-slight">
+                        <img [src]="product.productImageUrl" class="img-fluid" alt="" width="360px" height="640px">
+                        <a>
+                          <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                        </a>
+                      </div>
                   <!--Card image-->
-                  <a [routerLink]="['/products/product', product.$key]">
+                  <!-- <a [routerLink]="['/products/product', product.$key]">
                     <div class="view overlay hm-white-slight">
                       <img [src]="product.productImageUrl" class="img-fluid" alt="" width="360px" height="640px">
                       <a>
                         <div class="mask waves-effect waves-light" mdbRippleRadius></div>
                       </a>
                     </div>
-                  </a>
+                  </a> -->
                   <!--/.Card image-->
                   <!--Card content-->
                   <div class="card-body text-center no-padding">
                     <!--Category & ₹Title-->
-                    <a class="text-muted">
+                    <h5>{{ product.productCategory }}</h5>
+                    <!-- <a class="text-muted">
                       <h5>{{ product.productCategory }}</h5>
-                    </a>
+                    </a> -->
                     <p class="card-title">
                       <strong>
-                        <a [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active">{{ product.productName }}</a>
+                        <p class="card-text">{{ product.productName }}
+                        <!-- <a [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active">{{ product.productName }}</a> -->
                       </strong>
                     </p>
                     <!--Description-->
-                    <p class="card-text">{{ product.productDescription }}
-                    </p>
+                    <!-- <p class="card-text">{{ product.productDescription }}
+                    </p> -->
                     <!--Card footer-->
                     <div class="card-footer">
                       <!-- <span class="left">&#8377; {{ product.productPrice }} </span> -->

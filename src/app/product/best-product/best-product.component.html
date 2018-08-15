@@ -19,15 +19,21 @@
         <!--Card-->
         <div class="card card-cascade wider">
 
+            <div class="view overlay hm-white-slight">
+                <img [src]="product.productImageUrl" class="img-fluid" alt="">
+                <a>
+                  <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                </a>
+              </div>
           <!--Card image-->
-          <a [routerLink]="['/products/product', product.$key]">
+          <!-- <a [routerLink]="['/products/product', product.$key]">
             <div class="view overlay hm-white-slight">
               <img [src]="product.productImageUrl" class="img-fluid" alt="">
               <a>
                 <div class="mask waves-effect waves-light" mdbRippleRadius></div>
               </a>
             </div>
-          </a>
+          </a> -->
           <!--/.Card image-->
 
           <!--Card content-->
@@ -38,7 +44,8 @@
             </a>
             <h5 class="card-title">
               <strong>
-                <a [routerLink]="['/products/product', product.$key]">{{ product.productName }}</a>
+                  <p class="card-text">{{ product.productName }}
+                <!-- <a [routerLink]="['/products/product', product.$key]">{{ product.productName }}</a> -->
               </strong>
             </h5>
 
