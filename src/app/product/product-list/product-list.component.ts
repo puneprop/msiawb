@@ -18,18 +18,19 @@ export class ProductListComponent implements OnInit {
   searchProductName = "";
   
   //ptypes = ["All", "Surgicals", "Pharmaceuticals", "PHC Range"];
-  ptypes = ["All", "Surgicals", "Pharmaceuticals"];
+  ptypes = ["All", "Surgicals", "Allopathic", "Ayurvedic"];
 
   // tslint:disable-next-line:max-line-length
   brands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables"];
 
   // tslint:disable-next-line:max-line-length
-  pharmabrands = ["All", "Oral Care", "Ayurvedic"];
+  allopathicbrands = ["All", "Tablets", "Capsules", "Softgel", "Injections", "Syrups and Pediatric Range", "Ointment", "Dental", "Protein Power", "Cardion and Diabetic"];
+  ayurvedicbrands = ["All", "Digestion", "Immunity", "Men's health", "Women's health", "Medicines", "Sleep & insomnia", "Mind & Emotions", "Children' health", "Brain and memory", "Wellness & anti-aging", "Vitality", "Fever, flu & cough", "Allergy and pollution", "Muscle & Joint", "Detox & clense", "Single herbs", "Food & beverage", "Bath & body", "Youthful skin", "Massage oils"];
 
   // tslint:disable-next-line:max-line-length
   //allbrands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables", "Oral Care", "Ayurvedic", "ANESTHESIA", "Hospital Holloware", "Surgical Instruments", "Sterilling Equipment", "Hospital Furniture Instruments", "Diagonestic  Material Instruments", "Hospital Garments Apparels", "Diagonostic Equipment", "Rehabilitation Products", "Cold Chain Equipment", "Disposable"];
   
-  allbrands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables", "Oral Care", "Ayurvedic"];
+  allbrands = ["All", "Anesthesia Products & Equipment", "Rehabilitation Products & Aids", "Surgical Instruments (General)", "Syringe & Needle Destroyer", "Hospital Holloware - Plastic", "Surgical Needles", "Hospital Holloware-Stainles Steel", "Suction Units", "Surgical Rubber Goods", "Hospital & Medical Clothing", "Hospital & Medical Furniture", "Sterilization Equipment & Accessories", "Pathology Lab Items", "Diagnostic Instruments", "Laryngoscopes", "Medical Disposables", "Tablets", "Capsules", "Softgel", "Injections", "Syrups and Pediatric Range", "Ointment", "Dental", "Protein Power", "Cardion and Diabetic","Digestion", "Immunity", "Men's health", "Women's health", "Medicines", "Sleep & insomnia", "Mind & Emotions", "Children' health", "Brain and memory", "Wellness & anti-aging", "Vitality", "Fever, flu & cough", "Allergy and pollution", "Muscle & Joint", "Detox & clense", "Single herbs", "Food & beverage", "Bath & body", "Youthful skin", "Massage oils"];
 
   selectedPtype: "All";
 

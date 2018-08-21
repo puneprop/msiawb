@@ -129,7 +129,7 @@ export class AddProductComponent implements OnInit {
     //if (product.productImageUrl === undefined) {
     if (product.productImageUrl === undefined) {
       product.productImageUrl =
-        "http://via.placeholder.com/640x360/007bff/ffffff";
+        "../../assets/img/noimage.png";
     } else if(!product.productImageUrl.includes("../../assets/")){
       product.productImageUrl = "../../assets/" + product.productImageUrl ;
     }
@@ -162,7 +162,7 @@ export class AddProductComponent implements OnInit {
     productForm.value["ratings"] = Math.floor(Math.random() * 5 + 1);
     if (productForm.value["productImageUrl"] === undefined) {
       productForm.value["productImageUrl"] =
-        "http://via.placeholder.com/640x360/007bff/ffffff";
+        "../../assets/img/noimage.png";
     }
 
     productForm.value["favourite"] = false;
@@ -192,7 +192,7 @@ export class AddProductComponent implements OnInit {
     //if (product.productImageUrl === undefined) {
     if (product.productImageUrl === undefined) {
       product.productImageUrl =
-        "http://via.placeholder.com/640x360/007bff/ffffff";
+        "../../assets/img/noimage.png";
     }else if(!product.productImageUrl.includes("../../assets/")){
         product.productImageUrl = "../../assets/" + product.productImageUrl ;
     }

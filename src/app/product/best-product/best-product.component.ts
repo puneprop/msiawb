@@ -34,10 +34,16 @@ export class BestProductComponent implements OnInit {
     const x = this.productService.getProducts();
     x.snapshotChanges().subscribe(product => {
       this.bestProducts = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 20; i++) {
         const y = product[i].payload.toJSON();
         y["$key"] = product[i].key;
-        this.bestProducts.push(y as Product);
+        if(y["productImageUrl"] !== undefined && y["productImageUrl"] != '../../assets/img/noimage.png'){
+          console.log(y["productImageUrl"]);
+          this.bestProducts.push(y as Product);
+        }
+        if(this.bestProducts.length >=5 ){
+          break;
+        }
       }
       // product.forEach(element => {
       //   const y = element.payload.toJSON();

@@ -44,14 +44,23 @@
       </ng-template>
 
       <ng-template #item2>      
-        <div class="row" *ngIf="selectedPtype == ptypes[2] ; else itemdefault ">
+        <div class="row" *ngIf="selectedPtype == ptypes[2] ; else item3 ">
             <label for="pharmabrand_select">Product Category:</label>
             <select class="form-control" name="" id="pharmabrand_select" [(ngModel)]="selectedBrand">
-              <option *ngFor="let pharmabrand of pharmabrands" [ngValue]="pharmabrand">{{pharmabrand}}</option>
+              <option *ngFor="let allopathicbrand of allopathicbrands" [ngValue]="allopathicbrand">{{allopathicbrand}}</option>
             </select>
         </div>
       </ng-template>
 
+      <ng-template #item3>      
+        <div class="row" *ngIf="selectedPtype == ptypes[3] ; else itemdefault ">
+            <label for="pharmabrand_select">Product Category:</label>
+            <select class="form-control" name="" id="pharmabrand_select" [(ngModel)]="selectedBrand">
+              <option *ngFor="let ayurvedicbrand of ayurvedicbrands" [ngValue]="ayurvedicbrand">{{ayurvedicbrand}}</option>
+            </select>
+        </div>
+      </ng-template>
+      
       <!-- <ng-template #item3>  
         <div class="row" *ngIf="selectedPtype == ptypes[3]  ; else itemdefault">
             <label for="pharmabrand_select">Product Category:</label>
@@ -181,5 +190,5 @@
     </div>
   </div>
 </div>
-<app-add-product [productType]=selectedPtype [productCategory]=selectedBrand [productObject]=productObject [ptypes]=ptypes [brands]=brands [pharmabrands]=pharmabrands [psesurgicalbrands]=psesurgicalbrands [allbrands]=allbrands></app-add-product>
+<app-add-product [productType]=selectedPtype [productCategory]=selectedBrand [productObject]=productObject [ptypes]=ptypes [brands]=brands [pharmabrands]=allopathicbrands [psesurgicalbrands]=ayurvedicbrands [allbrands]=allbrands></app-add-product>
 <ng2-toasty></ng2-toasty>
