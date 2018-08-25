@@ -76,6 +76,8 @@ export class ProductListComponent implements OnInit {
       product.forEach(element => {
         const y = element.payload.toJSON();
         y["$key"] = element.key;
+        // let tprod: Product = y as Product; 
+        // console.log("{$key: '" + tprod.$key + "', productId:'"+tprod.productId + "', productPtype:'"+tprod.productPtype + "', productCategory:'"+tprod.productCategory+ "', productName:'"+tprod.productName+ "', productDescription:'"+tprod.productDescription+ "', productImageUrl:'"+tprod.productImageUrl+ "', productPrice:'"+tprod.productPrice+ "', productQuantity:'"+tprod.productQuatity+ "', productSeller:'"+tprod.productSeller +"' } ,");
         this.productList.push(y as Product);
       });
     });
